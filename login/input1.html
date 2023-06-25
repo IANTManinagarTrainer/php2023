@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Form</title>
+  <style>
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .form-row {
+      margin-bottom: 20px;
+    }
+    
+    .form-row label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .form-row select,
+    .form-row input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .btn-generate {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form>
+      <div class="form-row">
+        <label for="input1">Input 1</label>
+        <input id="input1" type="text">
+      </div>
+      <div class="form-row">
+        <label for="input2">Input 2</label>
+        <input id="input2" type="text">
+      </div>
+      <div class="form-row">
+        <label for="input3">Input 3</label>
+        <input id="input3" type="text">
+      </div>
+      <div class="form-row">
+        <label for="input4">Input 4</label>
+        <input id="input4" type="text">
+      </div>
+      <div class="form-row">
+        <label for="input5">Input 5</label>
+        <input id="input5" type="text">
+      </div>
+      <div class="form-row">
+        <label for="input6">Input 6</label>
+        <input id="input6" type="text">
+      </div>
+      <div class="form-row">
+        <label for="input7">Input 7</label>
+        <input id="input7" type="text">
+      </div>
+      <div class="form-row">
+        <label for="input8">Input 8</label>
+        <input id="input8" type="text">
+      </div>
+      <div class="form-row">
+        <label for="input9">Input 9</label>
+        <input id="input9" type="text">
+      </div>
+      <div class="form-row">
+        <label for="select1">Select Option</label>
+        <select id="select1">
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+      </div>
+      <button class="btn-generate" type="submit">Generate</button>
+    </form>
+  </div>
+</body>
+</html>

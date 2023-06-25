@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Form</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      padding: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    .form-row label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+
+    .form-row select,
+    .form-row textarea,
+    .form-row input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .form-row select:focus,
+    .form-row textarea:focus,
+    .form-row input[type="number"]:focus {
+      border-color: #007aff;
+      outline: none;
+    }
+
+    .toggle-panel {
+      display: none;
+    }
+
+    .toggle-label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .toggle-label::before {
+      content: "+";
+      display: inline-block;
+      margin-right: 5px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .toggle-content {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .toggle-panel:checked + .toggle-label::before {
+      transform: rotate(45deg);
+    }
+
+    .floating-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      padding: 0;
+      font-size: 24px;
+      line-height: 60px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .floating-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var togglePanel = document.querySelector('.toggle-panel');
+      var toggleLabel = document.querySelector('.toggle-label');
+      var toggleContent = document.querySelector('.toggle-content');
+
+      toggleLabel.addEventListener('click', function() {
+        if (togglePanel.checked) {
+          toggleContent.style.display = 'block';
+        } else {
+          toggleContent.style.display = 'none';
+        }
+      });
+      toggleLabel.click();
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <form>
+      <div class="form-row">
+        <label for="select1">Select Option</label>
+        <select id="select1">
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="textarea1">Rich Text</label>
+        <textarea id="textarea1"></textarea>
+      </div>
+      <input class="toggle-panel" type="checkbox" id="toggle-advanced" onchange="">
+      <label class="toggle-label" for="toggle-advanced">Advanced Settings</label>
+      <div class="toggle-content">
+        <div class="form-row">
+          <label for="input1">Input 1</label>
+          <input id="input1" type="number">
+        </div>
+        <div class="form-row">
+          <label for="input2">Input 2</label>
+          <input id="input2" type="number">
+        </div>
+        <div class="form-row">
+          <label for="input3">Input 3</label>
+          <input id="input3" type="number">
+        </div>
+        <div class="form-row">
+          <label for="input4">Input 4</label>
+          <input id="input4" type="number">
+        </div>
+        <div class="form-row">
+          <label for="input5">Input 5</label>
+          <input id="input5" type="number">
+        </div>
+        <div class="form-row">
+          <label for="input6">Input 6</label>
+          <input id="input6" type="number">
+        </div>
+        <div class="form-row">
+          <label for="input7">Input 7</label>
+          <input id="input7" type="number">
+        </div>
+        <div class="form-row">
+          <label for="input8">Input 8</label>
+          <input id="input8" type="number">
+        </div>
+      </div>
+      <button class="floating-button" type="submit">&#128736;</button>
+    </form>
+  </div>
+</body>
+</html>

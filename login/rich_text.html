@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rich Text Input</title>
+  <style>
+    .rich-text-input {
+      width: 300px;
+      height: 150px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="richText" class="rich-text-input" contenteditable="true"></div>
+  <script src="./js/tinymce/tinymce.min.js"></script>
+  <script>
+    // Get the content of the rich text field
+    function getContent() {
+      var richText = document.getElementById("richText");
+      var content = richText.innerHTML;
+      console.log(content);
+    }
+    tinymce.init({
+        selector: 'textarea#richText'
+    });
+  </script>
+</body>
+</html>
