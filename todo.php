@@ -8,6 +8,11 @@
             Item: <input type="text" name="input1" />
             <input type="submit" value="Add">
         </form>
+        <form method="post">
+            up_num: <input type="text" name="up_num" />
+            Item: <input type="text" name="up_item" />
+            <input type="submit" name="update" value="update">
+        </form>
         <ol>
             <?php
                 session_start();
@@ -28,11 +33,19 @@
                     $input1 = $_REQUEST["input1"];
                     array_push($array1, $input1);  // add the new item to the array
                 }
+                if(isset($_REQUEST["update"]))
+                {
+                    $up_num=intval($_REQUEST["up_num"]);
+                    $up_item = $_REQUEST["up_item"];
+                    $array1[$up_num] = $up_item;
+                    
+                }
                 
                 foreach($array1 as $item)
                     echo "<li><input type='radio' name='radio1' value='$item'/>$item</li>";
                 
                 $_SESSION["array1"] = $array1;  // save the array back to the session
+                
             ?>
         </ol>
     </body>
