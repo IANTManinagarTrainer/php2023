@@ -19,6 +19,11 @@
 
         function insert_user($username, $email, $password){
             $this->check_connection();
+            $password = md5($password);
+            if(!preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/', $email))
+            {
+                return false;
+            }
             $sql = "INSERT INTO users_details 
                 (username, email, password) 
                 VALUES ('$username', '$email', '$password')";
@@ -27,6 +32,7 @@
 
         function log_user($username, $password){
             $this->check_connection();
+            $password = md5($password);
             $sql = "SELECT * FROM users_details 
                 WHERE username='$username' AND password='$password'";
             $result = $this->con->query($sql);

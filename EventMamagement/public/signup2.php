@@ -29,14 +29,34 @@
             else{ ?>
         
         <div class="text-center">
-            <form method="POST">
+            <form  method="POST">
                 <input type="text" name="username" placeholder="Enter your username"> <br>
                 <input type="text" name="email" id="email" placeholder="Enter your Email"> <br>
                 <input type="password" name="password" placeholder="Enter your password"> <br>
                 <input type="password" name="password2" placeholder="Confirm your password"> <br>
-                <input type="submit" name="register" value="register">
+                <input type="button" class="btn btn-danger" onclick="ValidateEmail();" name="register" value="register">
             </form>
         </div>
         <?php }?>
+
+        <script>
+            function ValidateEmail()
+            {
+                var inputText = document.getElementById("email").value;
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if(inputText.match(mailformat))
+                {
+                    // alert("Valid email address!");
+                    document.forms[0].submit();
+                    return true;
+                }
+                else    
+                {
+                    alert("You have entered an invalid email address!");
+                    return false;
+                }
+            }
+
+        </script>
     </body>
 </html>
