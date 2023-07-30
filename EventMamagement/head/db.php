@@ -11,5 +11,36 @@
                 $settings['database']['database']
             );
         }
+        function check_connection(){
+            if($this->con == null || $this->con->connect_error)
+                return false;
+            return true;
+        }
+
+        function insert_user($username, $email, $password){
+            $this->check_connection();
+            $sql = "INSERT INTO users_details 
+                (username, email, password) 
+                VALUES ('$username', '$email', '$password')";
+            return $this->con->query($sql);
+        }
+
+        function log_user($username, $password){
+            $this->check_connection();
+            $sql = "SELECT * FROM users_details 
+                WHERE username='$username' AND password='$password'";
+            $result = $this->con->query($sql);
+            if($result->num_rows > 0){
+                if(!isset($_SESSION))
+                    session_start();
+                $_SESSION['username'] = $username;
+                return true;
+            }
+            return false;
+        }
+        function __destruct()
+        {
+            $this->con->close();
+        }
     }
 ?>

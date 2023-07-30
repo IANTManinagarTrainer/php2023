@@ -18,17 +18,26 @@
                       <div class="card-body">
                         <h5 class="card-title text-center">Login</h5>
                         <hr>
-                        <form>
+                        <form action="../head/dologin.php" method="post">
                           <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                            <input required type="text" class="form-control" name="username" id="username" placeholder="Enter your username">
                           </div>
                           <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                            <input required type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
                           </div>
                           <div class="text-center d-grid">
                             <button type="submit" class="btn btn-danger btn-block">Login</button>
+                          </div>
+                          <div class="text-danger">
+                            <?php
+                              session_start();
+                              if(isset($_SESSION['error'])){
+                                echo $_SESSION['error'];
+                                unset($_SESSION['error']);
+                              }
+                            ?>
                           </div>
                         </form>
                       </div>
